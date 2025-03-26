@@ -27,6 +27,8 @@ tags:
   - name: Authentication
   - name: Floor Plan
   - name: Room
+  - name: Room Type
+  - name: Room Amenity
 paths:
   /api/admin/login:
     post:
@@ -41,7 +43,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: hanciewanemphago@gmail.com
+                  example: alexxy@hamham.uk
                 password:
                   type: string
                   example: P@ssw0rd
@@ -168,7 +170,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: T1
+                  example: T2
                 description:
                   type: string
       security:
@@ -183,7 +185,7 @@ paths:
           in: header
           schema:
             type: integer
-          example: '10'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -206,6 +208,203 @@ paths:
           schema:
             type: integer
           example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/room-type:
+    post:
+      tags:
+        - Room Type
+      summary: store room type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Deluxe Suite 2
+                description: Spacious suite with ocean view
+                max_occupancy: 4
+                no_of_adult: 2
+                no_of_child: 2
+                base_price: 299.99
+                discount_type: percentage
+                discount: 10
+                room_id:
+                  - 1
+                  - 2
+                amenity_id:
+                  - 1
+                  - 2
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Room Type
+      summary: show all room type
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/room-type/{id}:
+    post:
+      tags:
+        - Room Type
+      summary: update room type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Deluxe Suite 2
+                description: Spacious suite with ocean view
+                max_occupancy: 4
+                no_of_adult: 2
+                no_of_child: 2
+                base_price: 299.99
+                discount_type: percentage
+                discount: 10
+                room_id:
+                  - 1
+                  - 2
+                amenity_id:
+                  - 1
+                  - 2
+                _method: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Room Type
+      summary: delete room type
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/room-amenity:
+    post:
+      tags:
+        - Room Amenity
+      summary: store room amenity
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                amenity_name:
+                  type: string
+                  example: House Keeping
+                description:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Room Amenity
+      summary: show all room amenity
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: branch-id
+          in: header
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response

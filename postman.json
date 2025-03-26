@@ -40,7 +40,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "hanciewanemphago@gmail.com",
+									"value": "alexxy@hamham.uk",
 									"type": "text"
 								},
 								{
@@ -251,7 +251,7 @@
 							},
 							{
 								"key": "branch-id",
-								"value": "10",
+								"value": "1",
 								"type": "text"
 							}
 						],
@@ -260,7 +260,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "T1",
+									"value": "T2",
 									"type": "text"
 								},
 								{
@@ -319,6 +319,291 @@
 								"api",
 								"admin",
 								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room Type",
+			"item": [
+				{
+					"name": "store room type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Deluxe Suite 2\",\n  \"description\": \"Spacious suite with ocean view\",\n  \"max_occupancy\": 4,\n  \"no_of_adult\": 2,\n  \"no_of_child\": 2,\n  \"base_price\": 299.99,\n  \"discount_type\": \"percentage\",\n  \"discount\": 10,\n  \"room_id\": [1, 2],\n  \"amenity_id\": [1,2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/room-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all room type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/room-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update room type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Deluxe Suite 2\",\n  \"description\": \"Spacious suite with ocean view\",\n  \"max_occupancy\": 4,\n  \"no_of_adult\": 2,\n  \"no_of_child\": 2,\n  \"base_price\": 299.99,\n  \"discount_type\": \"percentage\",\n  \"discount\": 10,\n  \"room_id\": [1, 2],\n  \"amenity_id\": [1,2],\n  \"_method\":\"put\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/room-type/{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-type",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete room type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/room-type/{id}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-type",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room Amenity",
+			"item": [
+				{
+					"name": "store room amenity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "amenity_name",
+									"value": "House Keeping",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/room-amenity",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-amenity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all room amenity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/room-amenity",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"room-amenity"
 							]
 						}
 					},
