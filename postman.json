@@ -91,13 +91,13 @@
 							},
 							{
 								"key": "branch-id",
-								"value": "10",
+								"value": "1",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Ground Floor415\",\n    \"description\": \"Text\",\n    \"room_id\": [1, 2, 3, 5]\n}",
+							"raw": "{\n    \"title\": \"Ground Floor41\",\n    \"description\": \"Text\",\n    \"room_id\": [1, 2, 3, 5]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,7 +260,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "T2",
+									"value": "T3",
 									"type": "text"
 								},
 								{
@@ -604,6 +604,215 @@
 								"api",
 								"admin",
 								"room-amenity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "search availlable rooms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/booking/search/available-rooms?check_in=2025-02-12&check_out=2025-04-23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"booking",
+								"search",
+								"available-rooms"
+							],
+							"query": [
+								{
+									"key": "check_in",
+									"value": "2025-02-12"
+								},
+								{
+									"key": "check_out",
+									"value": "2025-04-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "branch-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "check_in",
+									"value": "2025-04-13",
+									"type": "text"
+								},
+								{
+									"key": "check_out",
+									"value": "2025-04-14",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "john@example.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9800000000",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Kathmandu",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Nepal",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								},
+								{
+									"key": "no_of_adult",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "no_of_child",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "booking_room_price",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "additional_amount",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "tax",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "documents[0][document_title]",
+									"value": "Citizenship",
+									"type": "text"
+								},
+								{
+									"key": "documents[0][image]",
+									"type": "file",
+									"src": "/Users/hanciephago/Desktop/images.jpeg"
+								},
+								{
+									"key": "booking_details[0][room_id]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "booking_details[0][allocated_price]",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "booking_details[0][guests]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "booking_details[0][instructions]",
+									"value": "Near elevator",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"booking"
 							]
 						}
 					},
